@@ -4,12 +4,15 @@ body{
     padding: 0;
     flex: 1;
     box-sizing: border-box;
+    font-size: 2rem;
 }
+
+
 
 .image-container{
     width: 40vw;
     height: 100vh;
-    border: 1px solid black;
+    
 
 
 }
@@ -58,6 +61,7 @@ button{
     width: 200px;
     height: 50px;
     border-radius: 30px;
+    font-size: 1.5rem;
 }
 input{
     width:250px;
