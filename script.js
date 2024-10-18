@@ -43,24 +43,34 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listener to the password input
     password.addEventListener('mouseenter', passwordMessage);
 
-    // Function to check if passwords match
-    function validatePasswords() {
-        if (confirmation.value !== password.value) {
-            const message = document.createElement('div');
-            message.classList.add('password-error'); // Add a class for styling or future reference
-            forms1.appendChild(message);
-            message.style.marginTop = "20px";
-            message.style.color="red";
-            message.textContent = "Passwords don't match!";
-            
-            return false; // Prevents form submission
-        }
-        return true; // Allows form submission if passwords match
+   // Function to check if passwords match
+function validatePasswords() {
+    // Clear previous error messages if they exist
+    const existingError = forms1.querySelector('.password-error');
+    if (existingError) {
+        existingError.remove(); // Remove the existing error message if it exists
     }
+
+    // Check if the passwords match
+    if (confirmation.value !== password.value) {
+        const message = document.createElement('div');
+        message.classList.add('password-error'); // Add a class for styling or future reference
+        message.style.marginTop = "20px";
+        message.style.backgroundColor = "red"; // Set the color to red
+        message.textContent = "Passwords don't match!"; // Set the error message
+
+        // Append the message to forms1
+        forms1.appendChild(message);
+
+        return false; // Prevents form submission
+    }
+    return true; // Allows form submission if passwords match
+}
+
 
     // Add an event listener to the form submit button
     const form = document.querySelector('form');
-    let count=0;
+   
     form.addEventListener('submit', function (e) {
 
         if (!validatePasswords()) {
