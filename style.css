@@ -5,6 +5,7 @@ body{
     flex: 1;
     box-sizing: border-box;
     font-size: 2rem;
+    background-color: #f5e3cb;
 }
 
 
@@ -12,6 +13,7 @@ body{
 .image-container{
     width: 40vw;
     height: 100vh;
+    
     
 
 
@@ -26,6 +28,8 @@ body{
     margin-left: 40px;
     padding: 10px;
     flex: 1;
+    flex-wrap: wrap;
+    
 }
 
 label{
@@ -36,6 +40,7 @@ label{
     flex-direction: column;
     justify-content: space-evenly;
     box-shadow: 2px 5px 2px 0px grey;
+    flex-wrap: wrap;
    
     
 }
@@ -52,7 +57,7 @@ label{
 
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 
@@ -62,12 +67,27 @@ button{
     height: 50px;
     border-radius: 30px;
     font-size: 1.5rem;
+    background-color: greenyellow;
+    box-shadow: 0px 5px 3px 2px grey;
+    transition: transform 0.5 ease;
+   
 }
+
+button:active{
+    transform: translatey(10px);
+}
+
+
 input{
     width:250px;
-    padding: 5px;
+    padding: 15px;
     border: 0.3px solid grey;
   
-    border-radius: 7px;
+    border-radius: 10px;
+}
+
+input:focus{
+    border: 1px solid blue;
+    outline: none;
 }
 
