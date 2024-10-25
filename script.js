@@ -35,16 +35,26 @@ document.addEventListener("DOMContentLoaded", function() {
         requirements.forEach(req => {
             const passMessage = document.createElement('div');
             passMessage.classList.add('password-message'); // Add a class for styling or future reference
-            passMessage.innerHTML = `<p><span style="color: red; font-size: 1.3rem;">x</span> ${req}</p>`;
+            passMessage.innerHTML = `<p><span style="color: red; font-size: 1rem;">x</span> <span style="font-size: 1rem; font-weight: bold;"> ${req} </span> </p>`;
             forms2.appendChild(passMessage);
         });
+
+
+    }
+
+    function clearPasswordMessages() {
+        // Remove password requirement messages when out of focus
+        const existingMessages = forms2.querySelectorAll('.password-message');
+        existingMessages.forEach(message => message.remove());
     }
 
     // Add event listener to the password input
-    password.addEventListener('mouseenter', passwordMessage);
+    password.addEventListener('focus', passwordMessage);
+
+    password.addEventListener('blur',clearPasswordMessages);
 
    // Function to check if passwords match
-function validatePasswords() {
+ function validatePasswords() {
     // Clear previous error messages if they exist
     const existingError = forms1.querySelector('.password-error');
     if (existingError) {
@@ -56,7 +66,7 @@ function validatePasswords() {
         const message = document.createElement('div');
         message.classList.add('password-error'); // Add a class for styling or future reference
         message.style.marginTop = "20px";
-        message.style.backgroundColor = "red"; // Set the color to red
+        message.style.color = "red"; // Set the color to red
         message.textContent = "Passwords don't match!"; // Set the error message
 
         // Append the message to forms1
@@ -79,3 +89,6 @@ function validatePasswords() {
         }
     });
 });
+
+
+
